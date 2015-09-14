@@ -35,12 +35,11 @@ var direction = 1;
 draw_circle(centerX, centerY, radius);
 
 function erase_circle() {
-	draw_circle(centerX, centerY, radius, 'white', 0);
+	draw_circle(centerX, centerY, radius + 5, 'white', 0);
 }
 
 function draw_circle(x, y, r, fill, stroke) {
-	centerX = centerX + dx;
-	centerY = centerY + dy;
+
 	console.log("X: " + centerX + "\nY: " + centerY);
     context.beginPath();
     context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
@@ -49,6 +48,11 @@ function draw_circle(x, y, r, fill, stroke) {
     context.lineWidth = 1;
     context.strokeStyle = 'white';
     context.stroke();
+}
+
+function move_shape() {
+	centerX = centerX + dx;
+	centerY = centerY + dy;
 }
 
 function shrink() {
@@ -97,3 +101,27 @@ function change_direction(ord) {
 	} 
 	draw_circle(centerX, centerY, radius);
 }
+
+var Circle = function(name, x, y, r) {
+	this.name = name;
+	console.log("New circle created named: " + this.name);
+};
+
+var cir1 = new Circle("bob", 300, 300, 100);
+
+// Shape.event = {
+// 	addListener: function(el, type, fn) {
+// 		console.log("Listener added");
+// 	},
+// 	removeListener: function(el, type, fn) {
+// 		console.log("Listener removed");
+
+// 	},
+// 	getEvent: function(e) {
+
+// 	}
+// }
+
+// Shape.location = {
+	
+// }	
